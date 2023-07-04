@@ -1,7 +1,25 @@
 package org.example;
 
-public class Main {
+import javafx.application.Application;
+import javafx.stage.Stage;
+import org.example.view.View;
+
+public class Main extends Application {
+
+    @Override
+    public void start(final Stage stage) {
+        Controller controller = new Controller(stage);
+        View view = new View(controller);
+        try {
+            stage.setTitle("start");
+            stage.setScene(view.load());
+            stage.show();
+            controller.run();
+        } catch (IllegalStateException exc) {
+            System.err.println("Unable to load GUI " + exc);
+        }
+    }
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Application.launch(args);
     }
 }
