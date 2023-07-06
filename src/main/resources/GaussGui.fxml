@@ -12,7 +12,7 @@
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="286.0" prefWidth="239.0">
       <children>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a1b1b" height="292.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="272.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="292.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="272.0" />
          <Button fx:id="posButton" layoutX="35.0" layoutY="206.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="93.0" text="Add + Charge" />
          <Button fx:id="negButton" layoutX="142.0" layoutY="206.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Add - Charge" />
          <Button fx:id="delPos" layoutX="35.0" layoutY="245.0" mnemonicParsing="false" text="Delete + Charge">
@@ -27,12 +27,12 @@
          </Button>
          <Sphere fx:id="sphere" layoutX="134.0" layoutY="124.0" radius="50" />
          <HBox fx:id="hBox" alignment="CENTER" layoutX="92.0" layoutY="107.0" prefHeight="44.0" prefWidth="85.0" />
-         <Label layoutX="69.0" layoutY="33.0" text="Φ = Q / ϵ =" textFill="WHITE">
+         <Label layoutX="69.0" layoutY="33.0" text="Φ = Q / ϵ =">
             <font>
                <Font size="13.0" />
             </font>
          </Label>
-         <Label fx:id="answer" layoutX="142.0" layoutY="33.0" prefHeight="19.0" prefWidth="71.0" textFill="#f2eded">
+         <Label fx:id="answer" layoutX="142.0" layoutY="33.0" prefHeight="19.0" prefWidth="100.0">
             <font>
                <Font size="13.0" />
             </font>

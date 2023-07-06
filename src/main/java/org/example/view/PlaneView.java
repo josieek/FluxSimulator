@@ -2,15 +2,15 @@ package org.example.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import org.example.Controller;
+import org.example.Controller.PlaneController;
 
 import java.io.IOException;
 
-public class View {
+public class PlaneView {
     private FXMLLoader loader;
-    public View(Controller controller) {
+    public PlaneView(PlaneController controller) {
         this.loader = new FXMLLoader();
-        this.loader.setLocation(getClass().getClassLoader().getResource("GaussGui.fxml"));
+        this.loader.setLocation(getClass().getClassLoader().getResource("plane.fxml"));
         this.loader.setController(controller);
     }
 

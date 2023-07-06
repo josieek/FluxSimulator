@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Sphere;
@@ -15,10 +14,9 @@ import javafx.stage.Stage;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class Controller {
+public class SphereController {
     private Stage stage;
     private ArrayList<StackPane> posCharges;
     private ArrayList<StackPane> negCharges;
@@ -44,18 +42,22 @@ public class Controller {
     private Label answer;
 
 
-    Controller(Stage stage) {
+    public SphereController(Stage stage) {
         this.posCharges = new ArrayList<StackPane>();
         this.negCharges = new ArrayList<StackPane>();
         this.stage = stage;
     }
 
     public void run() {
+        this.negButton.setStyle("-fx-background-color: #4169E1");
+        this.delNeg.setStyle("-fx-background-color: #4169E1");
+        this.posButton.setStyle("-fx-background-color: #DC143C");
+        this.delPos.setStyle("-fx-background-color: #DC143C");
         this.delPos.setDisable(true);
         this.delNeg.setDisable(true);
         HBox.setHgrow(this.hBox, Priority.ALWAYS);
         this.posButton.setOnAction(e -> {
-            StackPane charge = this.createCharge("+", Color.RED);
+            StackPane charge = this.createCharge("+", Color.valueOf("#DC143C"));
             this.posCharges.add(charge);
             this.hBox.getChildren().add(charge);
             if(this.posCharges.size() + this.negCharges.size() >= 4) {
@@ -66,7 +68,7 @@ public class Controller {
             this.delPos.setDisable(false);
         });
         this.negButton.setOnAction(e -> {
-            StackPane charge = this.createCharge("-", Color.LIGHTBLUE);
+            StackPane charge = this.createCharge("-", Color.valueOf("#4169E1"));
             this.hBox.getChildren().add(charge);
             this.negCharges.add(charge);
             if(this.posCharges.size() + this.negCharges.size() >= 4) {
@@ -121,14 +123,13 @@ public class Controller {
     private double flux() {
         double flux = (((this.posCharges.size() - this.negCharges.size()) * 1.6 * Math.pow(10, -19))
                 / (8.9 * Math.pow(10, -12))) * Math.pow(10, 9);
-        System.out.println(flux);
         return flux;
     }
 
     private void setAnswer() {
         BigDecimal bd = new BigDecimal(Double.toString(this.flux()));
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        this.answer.setText(bd.doubleValue() + " nW");
+        this.answer.setText(bd.doubleValue() + " nWb");
     }
 
 }

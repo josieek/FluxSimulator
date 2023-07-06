@@ -2,14 +2,15 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.example.view.View;
+import org.example.Controller.WelcomeController;
+import org.example.view.WelcomeView;
 
 public class Main extends Application {
 
     @Override
     public void start(final Stage stage) {
-        Controller controller = new Controller(stage);
-        View view = new View(controller);
+        WelcomeController controller = new WelcomeController(stage);
+        WelcomeView view = new WelcomeView(controller);
         try {
             stage.setTitle("start");
             stage.setScene(view.load());
