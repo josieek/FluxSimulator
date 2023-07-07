@@ -6,7 +6,7 @@ import org.example.Controller.SphereController;
 
 import java.io.IOException;
 
-public class SphereView {
+public class SphereView implements ViewInterface {
     private FXMLLoader loader;
     public SphereView(SphereController controller) {
         this.loader = new FXMLLoader();

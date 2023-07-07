@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class WelcomeController {
+public class WelcomeController implements  ControllerInterface{
     private Stage stage;
     @FXML
     private Button startSphere;

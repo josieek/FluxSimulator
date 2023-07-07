@@ -8,13 +8,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.example.view.Arrow;
-
-import java.awt.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-public class PlaneController {
+public class PlaneController implements ControllerInterface {
     private Stage stage;
 
     @FXML
@@ -35,6 +33,8 @@ public class PlaneController {
     private Button decreaseArea;
     @FXML
     private Rectangle plane;
+    @FXML
+    private Button backButton;
 
     private ArrayList<Pane> arrows;
     private double width;
@@ -53,6 +53,10 @@ public class PlaneController {
         this.decreaseArea.setStyle("-fx-background-color: #C0C0C0");
         this.width = this.plane.getWidth();
         this.decreaseButton.setDisable(true);
+        this.backButton.setOnAction(e -> {
+            LaunchWelcome launchWelcome = new LaunchWelcome();
+            launchWelcome.start(this.stage);
+        });
         this.increaseButton.setOnAction(e -> {
             Pane arrow = new Arrow().getArrow();
             this.vBox.getChildren().add(arrow);

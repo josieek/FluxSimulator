@@ -6,7 +6,7 @@ import org.example.Controller.PlaneController;
 
 import java.io.IOException;
 
-public class PlaneView {
+public class PlaneView implements ViewInterface {
     private FXMLLoader loader;
     public PlaneView(PlaneController controller) {
         this.loader = new FXMLLoader();

@@ -7,7 +7,7 @@ import org.example.Controller.WelcomeController;
 
 import java.io.IOException;
 
-public class WelcomeView {
+public class WelcomeView implements ViewInterface{
     private FXMLLoader loader;
     public WelcomeView(WelcomeController controller) {
         this.loader = new FXMLLoader();

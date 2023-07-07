@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-public class SphereController {
+public class SphereController implements ControllerInterface {
     private Stage stage;
     private ArrayList<StackPane> posCharges;
     private ArrayList<StackPane> negCharges;
@@ -41,6 +41,9 @@ public class SphereController {
     @FXML
     private Label answer;
 
+    @FXML
+    private Button backButton;
+
 
     public SphereController(Stage stage) {
         this.posCharges = new ArrayList<StackPane>();
@@ -56,6 +59,10 @@ public class SphereController {
         this.delPos.setDisable(true);
         this.delNeg.setDisable(true);
         HBox.setHgrow(this.hBox, Priority.ALWAYS);
+        this.backButton.setOnAction(e -> {
+            LaunchWelcome launchWelcome = new LaunchWelcome();
+            launchWelcome.start(this.stage);
+        });
         this.posButton.setOnAction(e -> {
             StackPane charge = this.createCharge("+", Color.valueOf("#DC143C"));
             this.posCharges.add(charge);
